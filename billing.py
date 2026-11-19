@@ -1,6 +1,11 @@
 def calculate_delivery_cost(city: str, weight_kg: float) -> float:
-    """Розраховує доставку лише з потрібних примітивних даних."""
-    return (50.0 if city == "Ivano-Frankivsk" else 110.0) + (weight_kg * 15.0)
+    """Розраховує вартість доставки за назвою міста та вагою."""
+    base_rate = (
+        50.0 if city == "Ivano-Frankivsk"
+        else 80.0 if city == "Kyiv"
+        else 110.0
+    )
+    return base_rate + (weight_kg * 15.0)
 
 
 def process_standard_invoice(
